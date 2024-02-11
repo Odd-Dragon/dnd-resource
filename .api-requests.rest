@@ -1,0 +1,23 @@
+### Get All Spells (localhost)
+GET http://localhost:3000/spells
+
+### Get All Skills (localhost)
+GET http://localhost:3000/skills
+
+### Get All Spells (render)
+GET https://dnd-resource.onrender.com/spells
+
+### Get All Skills (render)
+GET https://dnd-resource.onrender.com/skills
+
+###Create a Spell (localhost)
+POST http://localhost:3000/spells
+
+###Create a Skill (localhost)
+POST http://localhost:3000/skills
+
+### Create a Spell (render)
+POST https://dnd-resource.onrender.com/spells
+
+### Create a Skill (render)
+POST https://dnd-resource.onrender.com/skills

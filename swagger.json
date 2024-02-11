@@ -3,7 +3,7 @@
     "info": {
       "version": "1.0.0",
       "title": "REST API",
-      "description": "API for managing contacts"
+      "description": "API for managing spells and skills for D&D"
     },
     "host": "dnd-resource.onrender.com",
     "basePath": "/",
@@ -46,8 +46,68 @@
                         }
                     }
                 }
+            },
+            "put": {
+              "summary": "Update a spell by ID",
+              "parameters": [
+                {
+                  "name": "id",
+                  "in": "path",
+                  "required": true,
+                  "type": "string"
+                },
+                {
+                  "name": "spell",
+                  "in": "body",
+                  "required": true,
+                  "schema": {
+                    "$ref": "#/definitions/Spell"
+                  }
+                }
+              ],
+              "responses": {
+                "200": {
+                  "description": "Spell updated successfully",
+                  "schema": {
+                    "$ref": "#/definitions/Spell"
+                  }
+                }
+              }
+            },
+            "delete": {
+              "summary": "Delete a spell by ID",
+              "parameters": [
+                {
+                  "name": "id",
+                  "in": "path",
+                  "required": true,
+                  "type": "string"
+                }
+              ],
+              "responses": {
+                "204": {
+                  "description": "Spell deleted successfully"
+                }
+              }
             }
-        },
+          },
+        "/spells/{id}": {
+          "get": {
+            "summary": "Get a spell by ID",
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "type": "string"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Successful response",
+                "schema": {
+                  "$ref": "#/definitions/Spell"
+                },
         "/skills": {
             "get": {
                 "summary": "Get all skills",
@@ -84,8 +144,68 @@
                     }
                 }
             }
+        },
+        "put": {
+          "summary": "Update a skill by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "skill",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Skill"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Skill updated successfully",
+              "schema": {
+                "$ref": "#/definitions/Skill"
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete a skill by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Skill deleted successfully"
+            }
+          }
         }
     },
+    "/skills/{id}": {
+      "get": {
+        "summary": "Get a skill by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Skill"
+            },
     "definitions": {
       "Spell": {
         "type": "object",
@@ -143,4 +263,11 @@
           }
         }
       }
-  
+    }
+  }
+}
+}
+          }
+        }
+      }
+    }
