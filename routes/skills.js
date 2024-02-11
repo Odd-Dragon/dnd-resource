@@ -3,9 +3,9 @@ const router = express.Router();
 const skillsMiddleware = require('../controllers/skills');
 
 //get all spells
-router.get('/skills', skillsMiddleware.getAll);
+router.get('/', skillsMiddleware.getAll);
 //get one spell
-router.get('/skills/:id', skillsMiddleware.getOne);
+router.get('/:id', skillsMiddleware.getOne);
 //create a new spell
-router.post('/skills', skillsMiddleware.create);
+router.post('/', skillsMiddleware.create);
 module.exports = router;

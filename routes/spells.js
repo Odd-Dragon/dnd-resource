@@ -3,9 +3,9 @@ const router = express.Router();
 const spellsMiddleware = require('../controllers/spells');
 
 //get all spells
-router.get('/spells', spellsMiddleware.getAll);
+router.get('/', spellsMiddleware.getAll);
 //get one spell
-router.get('/spells/:id', spellsMiddleware.getOne);
+router.get('/:id', spellsMiddleware.getOne);
 //create a new spell
-router.post('/spells', spellsMiddleware.create);
+router.post('/', spellsMiddleware.create);
 module.exports = router;
