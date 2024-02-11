@@ -1,0 +1,146 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "REST API",
+      "description": "API for managing contacts"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+        "/spells": {
+            "get": {
+                "summary": "Get all spells",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Spell"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new spell",
+                "parameters": [
+                    {
+                        "name": "spell",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Spell"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Spell created successfully",
+                        "schema": {
+                            "$ref": "#/definitions/Spell"
+                        }
+                    }
+                }
+            }
+        },
+        "/skills": {
+            "get": {
+                "summary": "Get all skills",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Skill"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new skill",
+                "parameters": [
+                    {
+                        "name": "skill",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Skill"  
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Skill created successfully",
+                        "schema": {
+                            "$ref": "#/definitions/Skill"  
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+      "Spell": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "school": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string"
+          },
+          "cast_time": {
+            "type": "string"
+          },
+          "range": {
+            "type": "string"
+          },
+          "components": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "at_higher_levels": {
+            "type": "string"
+          }
+        },
+        "required": ["name", "school", "level"]
+    },
+        "Skill": {
+            "type": "object",
+            "properties": {
+              "_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "ability": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": ["name"]
+          }
+        }
+      }
+  
