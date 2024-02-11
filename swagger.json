@@ -26,6 +26,23 @@
                     }
                 }
             },
+            "/{id}": {
+              "get": {
+                "summary": "Get a spell by ID",
+                "parameters": [
+                  {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "Successful response",
+                    "schema": {
+                      "$ref": "#/definitions/Spell"
+                    },
             "post": {
                 "summary": "Create a new spell",
                 "parameters": [
@@ -91,23 +108,6 @@
               }
             }
           },
-        "/spells/{id}": {
-          "get": {
-            "summary": "Get a spell by ID",
-            "parameters": [
-              {
-                "name": "id",
-                "in": "path",
-                "required": true,
-                "type": "string"
-              }
-            ],
-            "responses": {
-              "200": {
-                "description": "Successful response",
-                "schema": {
-                  "$ref": "#/definitions/Spell"
-                },
         "/skills": {
             "get": {
                 "summary": "Get all skills",
@@ -123,6 +123,23 @@
                     }
                 }
             },
+            "/{id}": {
+              "get": {
+                "summary": "Get a skill by ID",
+                "parameters": [
+                  {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "Successful response",
+                    "schema": {
+                      "$ref": "#/definitions/Skill"
+                    },
             "post": {
                 "summary": "Create a new skill",
                 "parameters": [
@@ -189,23 +206,6 @@
           }
         }
     },
-    "/skills/{id}": {
-      "get": {
-        "summary": "Get a skill by ID",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/Skill"
-            },
     "definitions": {
       "Spell": {
         "type": "object",
