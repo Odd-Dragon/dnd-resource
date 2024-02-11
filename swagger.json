@@ -5,10 +5,10 @@
       "title": "REST API",
       "description": "API for managing contacts"
     },
-    "host": "localhost:3000",
+    "host": "dnd-resource.onrender.com",
     "basePath": "/",
     "schemes": [
-      "http"
+      "https"
     ],
     "paths": {
         "/spells": {
