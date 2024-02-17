@@ -10,7 +10,6 @@ router.get('/:id', skillsMiddleware.getOne);
 router.post('/', skillsMiddleware.create);
 // Update a spell
 router.put('/:id', skillsMiddleware.update);
-
 // Delete a spell
 router.delete('/:id', skillsMiddleware.delete);
 module.exports = router;
