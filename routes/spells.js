@@ -8,4 +8,8 @@ router.get('/', spellsMiddleware.getAll);
 router.get('/:id', spellsMiddleware.getOne);
 //create a new spell
 router.post('/', spellsMiddleware.create);
+// Update a spell
+router.put('/:id', spellsMiddleware.update);
+// Delete a spell
+router.delete('/:id', spellsMiddleware.delete);
 module.exports = router;
