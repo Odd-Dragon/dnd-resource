@@ -11,167 +11,215 @@
     "https"
   ],
   "paths": {
-      "/spells": {
-          "get": {
-              "summary": "Get all spells",
-              "responses": {
-                  "200": {
-                      "description": "Successful response",
-                      "schema": {
-                          "type": "array",
-                          "items": {
-                              "$ref": "#/definitions/Spell"
-                          }
-                      }
-                  }
-              }
-          },
-          "post": {
-              "summary": "Create a new spell",
-              "parameters": [
-                  {
-                      "name": "spell",
-                      "in": "body",
-                      "required": true,
-                      "schema": {
-                          "$ref": "#/definitions/Spell"
-                      }
-                  }
-              ],
-              "responses": {
-                  "201": {
-                      "description": "Spell created successfully",
-                      "schema": {
-                          "$ref": "#/definitions/Spell"
-                      }
-                  }
-              }
-            },
-          "put": {
-            "summary": "Update a spell by ID",
-            "parameters": [
-              {
-                "name": "id",
-                "in": "path",
-                "required": true,
-                "type": "string"
-              },
-              {
-                "name": "spell",
-                "in": "body",
-                "required": true,
-                "schema": {
-                  "$ref": "#/definitions/Spell"
-                }
-              }
-            ],
-            "responses": {
-              "200": {
-                "description": "Spell updated successfully",
-                "schema": {
-                  "$ref": "#/definitions/Spell"
-                }
+    "/spells": {
+      "get": {
+        "summary": "Get all spells",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Spell"
               }
             }
-          },
-          "delete": {
-            "summary": "Delete a spell by ID",
-            "parameters": [
-              {
-                "name": "id",
-                "in": "path",
-                "required": true,
-                "type": "string"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new spell",
+        "parameters": [
+          {
+            "name": "spell",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Spell"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Spell created successfully",
+            "schema": {
+              "$ref": "#/definitions/Spell"
+            }
+          }
+        }
+      }
+    },
+    "/spells/{id}": {
+      "get": {
+        "summary": "Get one spell by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "$ref": "#/definitions/Spell"
               }
-            ],
-            "responses": {
-              "204": {
-                "description": "Spell deleted successfully"
-              }
+            },
+            "404": {
+              "description": "Spell not found"
             }
           }
         },
-      "/skills": {
-          "get": {
-              "summary": "Get all skills",
-              "responses": {
-                  "200": {
-                      "description": "Successful response",
-                      "schema": {
-                          "type": "array",
-                          "items": {
-                              "$ref": "#/definitions/Skill"
-                          }
-                      }
-                  }
-              }
+      "put": {
+        "summary": "Update a spell by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
           },
-          "post": {
-              "summary": "Create a new skill",
-              "parameters": [
-                  {
-                      "name": "skill",
-                      "in": "body",
-                      "required": true,
-                      "schema": {
-                          "$ref": "#/definitions/Skill"  
-                      }
-                  }
-              ],
-              "responses": {
-                  "201": {
-                      "description": "Skill created successfully",
-                      "schema": {
-                          "$ref": "#/definitions/Skill"  
-                      }
-                  }
-              }
+          {
+            "name": "spell",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Spell"
             }
-          },
-          "put": {
-            "summary": "Update a skill by ID",
-            "parameters": [
-              {
-                "name": "id",
-                "in": "path",
-                "required": true,
-                "type": "string"
-              },
-              {
-                "name": "skill",
-                "in": "body",
-                "required": true,
-                "schema": {
-                  "$ref": "#/definitions/Skill"
-                }
-              }
-            ],
-            "responses": {
-              "200": {
-                "description": "Skill updated successfully",
-                "schema": {
-                  "$ref": "#/definitions/Skill"
-                }
-              }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Spell updated successfully",
+            "schema": {
+              "$ref": "#/definitions/Spell"
             }
-          },
-          "delete": {
-            "summary": "Delete a skill by ID",
-            "parameters": [
-              {
-                "name": "id",
-                "in": "path",
-                "required": true,
-                "type": "string"
-              }
-            ],
-            "responses": {
-              "204": {
-                "description": "Skill deleted successfully"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a spell by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Spell deleted successfully"
+          }
+        }
+      }
+    },
+    "/skills": {
+      "get": {
+        "summary": "Get all skills",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Skill"
               }
             }
           }
+        }
       },
+      "post": {
+        "summary": "Create a new skill",
+        "parameters": [
+          {
+            "name": "skill",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Skill"  
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Skill created successfully",
+            "schema": {
+              "$ref": "#/definitions/Skill"  
+            }
+          }
+        }
+      }
+    },
+    "/skills/{id}": {
+      "get": {
+        "summary": "Get one skill by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "$ref": "#/definitions/Skill"
+              }
+            },
+            "404": {
+              "description": "Skill not found"
+            }
+          }
+        },
+      "put": {
+        "summary": "Update a skill by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "skill",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Skill"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Skill updated successfully",
+            "schema": {
+              "$ref": "#/definitions/Skill"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a skill by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Skill deleted successfully"
+          }
+        }
+      }
+    }
+  },
   "definitions": {
     "Spell": {
       "type": "object",
@@ -208,24 +256,24 @@
         }
       },
       "required": ["name", "school", "level"]
-  },
-      "Skill": {
-          "type": "object",
-          "properties": {
-            "_id": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "ability": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            }
-          },
-          "required": ["name"]
+    },
+    "Skill": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "ability": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
         }
-      }
+      },
+      "required": ["name"]
     }
+  }
+}
