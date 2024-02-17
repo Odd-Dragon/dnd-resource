@@ -64,7 +64,7 @@ const skillsMiddleware = {
         .updateOne({ _id: skillId }, { $set: updatedSkill });
 
       if (result.modifiedCount === 1) {
-        res.status(200).json({ message: 'Skill updated successfully' });
+        res.status(204).json({ message: 'Skill updated successfully' });
       } else {
         res.status(404).json({ message: 'Skill not found' });
       }

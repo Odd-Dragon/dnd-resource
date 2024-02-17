@@ -64,7 +64,7 @@ const spellsMiddleware = {
         .updateOne({ _id: spellId }, { $set: updatedSpell });
 
       if (result.modifiedCount === 1) {
-        res.status(200).json({ message: 'Spell updated successfully' });
+        res.status(204).json({ message: 'Spell updated successfully' });
       } else {
         res.status(404).json({ message: 'Spell not found' });
       }
